@@ -97,4 +97,4 @@ Kết quả của dự án là một bản demo game có thể chơi được, b
 
 ## License & Disclaimer
 
-Các nội dung sử dụng nhân vật/IP của bên thứ ba (như Pokémon) trong portfolio này là fan-made, phi thương mại, phục vụ mục đích học tập/hackathon. Mọi bản quyền liên quan thuộc về Nintendo, Game Freak, Creatures Inc., và The Pokémon Company.
+Dự án fan-made phi thương mại, phục vụ học tập/hackathon. Pokémon © Nintendo, Game Freak, Creatures Inc. & The Pokémon Company.
