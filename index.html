@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thanh Truc — Games Portfolio</title>
+<title>Team PTW — Games Portfolio</title>
 <style>
   :root{
     --bg:#f5f4f0;          /* warm off-white */
@@ -37,7 +37,7 @@
   .nav-link{font-weight:700;font-size:.9rem;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);transition:.2s}
   .nav-link:hover{border-color:var(--ink)}
 
-  /* HERO — full-width image */
+  /* HERO — full-width screenshot cover */
   .hero{position:relative;width:100%;min-height:min(74vh,640px);display:flex;align-items:flex-end;overflow:hidden}
   .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,20,.05) 0%,rgba(8,10,20,.15) 45%,rgba(8,10,20,.82) 100%)}
@@ -89,7 +89,8 @@
   .gallery img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:.4s}
   .gallery figure:hover img{transform:scale(1.03)}
   .gallery figcaption{padding:12px 16px;font-size:.86rem;color:var(--muted)}
-  .ph{aspect-ratio:16/9;display:grid;place-items:center;color:#b7b6ad;font-size:.9rem;font-weight:600;background:repeating-linear-gradient(45deg,#fafafa,#fafafa 12px,#f1f1ec 12px,#f1f1ec 24px);border:1px dashed #d8d7cf;border-radius:var(--r)}
+  .ph{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;color:#b7b6ad;font-size:.9rem;font-weight:600;padding:14px;
+      background:repeating-linear-gradient(45deg,#fafafa,#fafafa 12px,#f1f1ec 12px,#f1f1ec 24px);border:1px dashed #d8d7cf;border-radius:var(--r)}
 
   blockquote{background:var(--ink);color:#fff;border-radius:var(--r);padding:30px 34px;margin-top:40px;font-size:clamp(1.05rem,2.2vw,1.35rem);font-weight:600;line-height:1.4}
   blockquote b{color:var(--accent)}
@@ -99,23 +100,22 @@
   footer{background:var(--ink);color:#cfcfd6;padding:40px 0}
   footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
   footer a{color:#fff;font-weight:700}
-  .divider{border:0;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <div class="brand">Thanh Truc <span>· Games Portfolio</span></div>
-    <a class="nav-link" href="https://github.com/fennytrucds">GitHub ↗</a>
+    <div class="brand">Team PTW <span>· Games Portfolio</span></div>
+    <a class="nav-link" href="https://github.com/fennytrucds" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
 </nav>
 
-<!-- HERO: full-width gameplay image -->
+<!-- HERO: full-width gameplay screenshot -->
 <header class="hero">
   <img src="./games-background.jpg" alt="Pikachu Adventure gameplay">
   <div class="hero-inner wrap">
-    <div class="eyebrow">Prompt-to-Play Hackathon · Playable Demo</div>
+    <div class="eyebrow">Playable Demo</div>
     <h1>Pikachu Adventure</h1>
     <p class="tagline">2D platformer hành động: dẫn Pikachu vượt rừng, hạ từng boss để tìm đường về với Ash.</p>
     <div class="badges">
@@ -124,29 +124,29 @@
       <span class="badge">Windows PC</span>
     </div>
     <div class="cta">
-      <a class="btn primary" href="https://youtu.be/w4rS5_6raAo">▶ Xem Trailer</a>
-      <a class="btn ghost" href="https://youtu.be/4adZdZ18rYw">🎮 Demo Gameplay</a>
+      <a class="btn primary" href="https://youtu.be/w4rS5_6raAo" target="_blank" rel="noopener">▶ Xem Trailer</a>
+      <a class="btn ghost" href="https://youtu.be/4adZdZ18rYw" target="_blank" rel="noopener">🎮 Demo Gameplay</a>
     </div>
   </div>
 </header>
 
 <main>
 
-  <!-- 01 Overview (short caption) -->
+  <!-- 01 Cốt truyện -->
   <section>
     <div class="wrap">
       <div class="lead">
         <div class="num">01</div>
         <div>
-          <div class="eyebrow">Overview</div>
-          <h2>Biến một câu chuyện quen thuộc thành một vòng lặp gameplay rõ ràng.</h2>
-          <p>Một game platformer lấy cảm hứng từ thế giới Pokémon, xây dựng trọn vẹn cho Prompt-to-Play Hackathon — từ concept, cốt truyện, level design đến gameplay chạy được trên Windows PC.</p>
+          <div class="eyebrow">Cốt truyện</div>
+          <h2>Pikachu thất lạc — hành trình tìm đường về với Ash.</h2>
+          <p>Ash và Pikachu là đôi bạn thân luôn đồng hành, và luôn bị Team Rocket phục kích hòng bắt Pikachu. Trong một lần chạm trán, Pikachu chẳng may thất lạc giữa rừng rậm. Cậu phải vượt qua những khu vực trắc trở và các Pokémon hung dữ — boss của từng vùng rừng — để tìm lại Ash.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02 Gameplay gallery — visual first -->
+  <!-- 02 Gameplay gallery -->
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
@@ -159,20 +159,20 @@
       </div>
       <div class="gallery">
         <figure class="wide">
-          <img src="./games-background.jpg" alt="Pikachu chiến đấu giữa khu rừng nước">
+          <img src="./games-background.jpg" alt="Pikachu giữa khu rừng nước">
           <figcaption>Forest Encounter — Pikachu né đòn và phản công giữa các bục nhảy trên mặt nước.</figcaption>
         </figure>
-        <!-- Thả thêm screenshot vào đây để làm dày gallery, ví dụ:
-        <figure><img src="./screenshots/fire-zone.png" alt="Fire Zone"><figcaption>Fire Zone — địa hình lửa.</figcaption></figure>
-        <figure><img src="./screenshots/mewtwo.png" alt="Mewtwo Battle"><figcaption>Mewtwo Battle — trận cuối.</figcaption></figure>
+        <!-- Sau khi lưu ảnh vào screenshots/, thay placeholder bằng:
+        <figure><img src="./screenshots/fire-zone.jpg" alt="Fire Zone — boss Charizard"><figcaption>Fire Zone — địa hình dung nham, né cầu lửa và đối đầu boss Charizard.</figcaption></figure>
+        <figure><img src="./screenshots/water-zone.jpg" alt="Water Zone — boss Blastoise"><figcaption>Water Zone — bục nhảy trên mặt nước, đối đầu boss Blastoise và bầy Wartortle.</figcaption></figure>
         -->
-        <figure><div class="ph">+ Thêm screenshot Fire Zone</div></figure>
-        <figure><div class="ph">+ Thêm screenshot Mewtwo Battle</div></figure>
+        <figure><div class="ph">Fire Zone — đang chờ ảnh (screenshots/fire-zone.jpg)</div></figure>
+        <figure><div class="ph">Water Zone — đang chờ ảnh (screenshots/water-zone.jpg)</div></figure>
       </div>
     </div>
   </section>
 
-  <!-- 03 Combat skills as cards -->
+  <!-- 03 Combat -->
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
@@ -198,7 +198,7 @@
     </div>
   </section>
 
-  <!-- 04 Levels as cards -->
+  <!-- 04 Levels -->
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
@@ -229,14 +229,14 @@
     </div>
   </section>
 
-  <!-- 05 Role grid -->
+  <!-- 05 Role -->
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
         <div class="num">05</div>
         <div>
-          <div class="eyebrow">My Role</div>
-          <h2>Một mình triển khai full-stack từ ý tưởng đến demo.</h2>
+          <div class="eyebrow">Team Role</div>
+          <h2>Triển khai full-stack từ ý tưởng đến demo.</h2>
           <p>Bốn mảng công việc chính trong dự án.</p>
         </div>
       </div>
@@ -249,7 +249,7 @@
     </div>
   </section>
 
-  <!-- 06 Key features chips -->
+  <!-- 06 Key features -->
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
@@ -277,8 +277,8 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Thanh Truc · Games Portfolio</span>
-    <span><a href="https://github.com/fennytrucds">github.com/fennytrucds ↗</a></span>
+    <span>© 2026 Team PTW · Games Portfolio</span>
+    <span><a href="https://github.com/fennytrucds" target="_blank" rel="noopener">github.com/fennytrucds ↗</a></span>
   </div>
 </footer>
 
