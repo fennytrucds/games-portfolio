@@ -97,4 +97,4 @@ Kết quả của dự án là một bản demo game có thể chơi được, b
 
 ## License & Disclaimer
 
-Dự án fan-made phi thương mại, phục vụ học tập/hackathon. Pokémon © Nintendo, Game Freak, Creatures Inc. & The Pokémon Company.
+Fan-made Game Concept phi thương mại. Pokémon © Nintendo, Game Freak, Creatures Inc. & The Pokémon Company.
