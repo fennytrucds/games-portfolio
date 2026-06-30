@@ -6,191 +6,279 @@
 <title>Thanh Truc — Games Portfolio</title>
 <style>
   :root{
-    --bg:#0f1226; --bg2:#171a35; --card:#1d2142; --line:#2a2f57;
-    --txt:#e8eaf6; --muted:#a7accf; --accent:#ffd23f; --accent2:#4cc4ff;
-    --maxw:920px;
+    --bg:#f5f4f0;          /* warm off-white */
+    --surface:#ffffff;
+    --ink:#16161a;         /* near-black text */
+    --muted:#6c6c74;
+    --line:#e7e6e0;
+    --accent:#ffcb05;      /* electric yellow */
+    --accent-ink:#3a2f00;
+    --blue:#2563eb;
+    --maxw:1080px;
+    --r:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    background:var(--bg); color:var(--txt); line-height:1.65;
+    background:var(--bg); color:var(--ink); line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  a{color:var(--accent2);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.74rem;color:var(--blue)}
 
-  /* Hero */
-  header.hero{
-    background:radial-gradient(1200px 500px at 70% -10%,rgba(76,196,255,.18),transparent 60%),
-               radial-gradient(900px 500px at 10% 0%,rgba(255,210,63,.14),transparent 55%),
-               linear-gradient(180deg,var(--bg2),var(--bg));
-    border-bottom:1px solid var(--line);
-    padding:64px 0 56px;
-  }
-  .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem}
-  h1{font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.08;margin:.35em 0 .15em;font-weight:800}
-  .role{font-size:clamp(1.05rem,2.6vw,1.35rem);color:var(--muted);font-weight:500}
-  .intro{margin-top:18px;max-width:640px;color:#cdd1ee}
-  .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;
-    font-weight:700;font-size:.95rem;border:1px solid var(--line);
-  }
-  .btn.primary{background:var(--accent);color:#1a1500;border-color:transparent}
-  .btn.primary:hover{filter:brightness(1.06);text-decoration:none}
-  .btn.ghost{background:transparent;color:var(--txt)}
-  .btn.ghost:hover{border-color:var(--accent2);text-decoration:none}
+  /* Top nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(245,244,240,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:800;letter-spacing:-.01em}
+  .brand span{color:var(--muted);font-weight:600}
+  .nav-link{font-weight:700;font-size:.9rem;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);transition:.2s}
+  .nav-link:hover{border-color:var(--ink)}
+
+  /* HERO — full-width image */
+  .hero{position:relative;width:100%;min-height:min(74vh,640px);display:flex;align-items:flex-end;overflow:hidden}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,20,.05) 0%,rgba(8,10,20,.15) 45%,rgba(8,10,20,.82) 100%)}
+  .hero-inner{position:relative;z-index:2;color:#fff;padding:0 0 46px}
+  .hero .eyebrow{color:var(--accent)}
+  .hero h1{font-size:clamp(2.6rem,7vw,5rem);line-height:.98;font-weight:900;letter-spacing:-.02em;margin:.18em 0 .25em;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+  .hero .tagline{font-size:clamp(1rem,2.4vw,1.35rem);max-width:620px;color:#eef0f6;text-shadow:0 1px 14px rgba(0,0,0,.4)}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);color:#fff;padding:6px 13px;border-radius:999px;font-size:.8rem;font-weight:600}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.95rem;padding:13px 22px;border-radius:12px;transition:.2s}
+  .btn.primary{background:var(--accent);color:var(--accent-ink)}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.5);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.22)}
 
   /* Sections */
-  section{padding:54px 0}
-  .sec-title{font-size:1.55rem;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-  .sec-sub{color:var(--muted);margin-bottom:26px}
+  section{padding:72px 0}
+  .lead{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+  .lead .num{font-weight:900;font-size:1.1rem;color:var(--accent);background:var(--ink);width:42px;height:42px;border-radius:12px;display:grid;place-items:center}
+  .lead h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.01em;line-height:1.15}
+  .lead p{color:var(--muted);margin-top:8px;max-width:680px;font-size:1.05rem}
 
-  /* Project card */
-  .card{
-    background:linear-gradient(180deg,var(--card),#191d3c);
-    border:1px solid var(--line);border-radius:18px;overflow:hidden;
-    box-shadow:0 24px 60px -28px rgba(0,0,0,.7);
-  }
-  .shot{position:relative;display:block}
-  .shot img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-  .shot .badge{
-    position:absolute;top:14px;left:14px;background:rgba(15,18,38,.82);backdrop-filter:blur(4px);
-    border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:.78rem;font-weight:700;color:var(--accent)
-  }
-  .card-body{padding:26px 26px 30px}
-  .proj-title{font-size:1.7rem;font-weight:800}
-  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
-  .pill{background:#0f1330;border:1px solid var(--line);color:var(--muted);padding:5px 12px;border-radius:999px;font-size:.82rem}
-  .pill b{color:var(--txt);font-weight:600}
-  .disclaimer{font-size:.85rem;color:var(--muted);font-style:italic;border-left:3px solid var(--line);padding:4px 0 4px 14px;margin:6px 0 18px}
-  .links{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+  /* Generic card grids */
+  .grid{display:grid;gap:18px;margin-top:34px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:760px){.g2,.g3,.g4{grid-template-columns:1fr}}
 
-  h3.block{margin:26px 0 8px;font-size:1.12rem;font-weight:700;color:var(--accent2)}
-  p+p{margin-top:10px}
-  ul{margin:8px 0 0 2px;list-style:none}
-  ul li{position:relative;padding-left:24px;margin:7px 0;color:#d7dbf5}
-  ul li::before{content:"▸";position:absolute;left:4px;color:var(--accent)}
-  .feat li::before{content:"✓";color:#5fe39a}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:.22s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(0,0,0,.32);border-color:#d8d7cf}
+  .card .ico{font-size:1.7rem;width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:#fff7d6;border:1px solid #f3e6a3;margin-bottom:14px}
+  .card .ico.blue{background:#e6efff;border-color:#c5d8ff}
+  .card h3{font-size:1.18rem;font-weight:800;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.96rem}
+  .card .kicker{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
 
-  /* Level table */
-  .tbl-scroll{overflow-x:auto;margin-top:10px}
-  table{border-collapse:collapse;width:100%;min-width:480px;font-size:.92rem}
-  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}
-  th{color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
-  td:first-child{font-weight:700;color:var(--accent2);white-space:nowrap}
+  /* Feature chips */
+  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .chip{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-weight:600;font-size:.92rem}
+  .chip .dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
 
-  blockquote{
-    background:#0f1330;border:1px solid var(--line);border-left:4px solid var(--accent);
-    border-radius:10px;padding:16px 18px;margin:22px 0;color:#dfe2fb
-  }
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
+  @media(max-width:760px){.gallery{grid-template-columns:1fr}}
+  .gallery figure{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+  .gallery figure.wide{grid-column:1/-1}
+  .gallery img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:.4s}
+  .gallery figure:hover img{transform:scale(1.03)}
+  .gallery figcaption{padding:12px 16px;font-size:.86rem;color:var(--muted)}
+  .ph{aspect-ratio:16/9;display:grid;place-items:center;color:#b7b6ad;font-size:.9rem;font-weight:600;background:repeating-linear-gradient(45deg,#fafafa,#fafafa 12px,#f1f1ec 12px,#f1f1ec 24px);border:1px dashed #d8d7cf;border-radius:var(--r)}
 
-  /* Roles grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-  .role-card{background:#0f1330;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-  .role-card h4{color:var(--accent2);font-size:1rem;margin-bottom:6px}
-  .role-card p{color:var(--muted);font-size:.9rem}
+  blockquote{background:var(--ink);color:#fff;border-radius:var(--r);padding:30px 34px;margin-top:40px;font-size:clamp(1.05rem,2.2vw,1.35rem);font-weight:600;line-height:1.4}
+  blockquote b{color:var(--accent)}
 
-  footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--muted);font-size:.88rem}
+  .disclaimer{color:var(--muted);font-size:.82rem;font-style:italic;margin-top:40px;border-top:1px solid var(--line);padding-top:18px}
+
+  footer{background:var(--ink);color:#cfcfd6;padding:40px 0}
   footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer a{color:#fff;font-weight:700}
+  .divider{border:0;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
 
-<header class="hero">
+<nav>
   <div class="wrap">
-    <div class="eyebrow">🎮 Games Portfolio</div>
-    <h1>Thanh Truc</h1>
-    <div class="role">Game Designer &amp; Full-stack Game Developer</div>
-    <p class="intro">Tổng hợp các dự án game tôi đã xây dựng — từ ý tưởng, cốt truyện, level design đến gameplay implementation.</p>
+    <div class="brand">Thanh Truc <span>· Games Portfolio</span></div>
+    <a class="nav-link" href="https://github.com/fennytrucds">GitHub ↗</a>
+  </div>
+</nav>
+
+<!-- HERO: full-width gameplay image -->
+<header class="hero">
+  <img src="./games-background.jpg" alt="Pikachu Adventure gameplay">
+  <div class="hero-inner wrap">
+    <div class="eyebrow">Prompt-to-Play Hackathon · Playable Demo</div>
+    <h1>Pikachu Adventure</h1>
+    <p class="tagline">2D platformer hành động: dẫn Pikachu vượt rừng, hạ từng boss để tìm đường về với Ash.</p>
+    <div class="badges">
+      <span class="badge">2D Platformer</span>
+      <span class="badge">Boss Battle</span>
+      <span class="badge">Windows PC</span>
+    </div>
     <div class="cta">
       <a class="btn primary" href="https://youtu.be/w4rS5_6raAo">▶ Xem Trailer</a>
-      <a class="btn ghost" href="https://github.com/fennytrucds">GitHub →</a>
+      <a class="btn ghost" href="https://youtu.be/4adZdZ18rYw">🎮 Demo Gameplay</a>
     </div>
   </div>
 </header>
 
 <main>
-<section>
-  <div class="wrap">
-    <h2 class="sec-title">Featured Project</h2>
-    <p class="sec-sub">Dự án nổi bật tại Prompt-to-Play Hackathon</p>
 
-    <article class="card">
-      <a class="shot" href="https://youtu.be/4adZdZ18rYw">
-        <span class="badge">Playable Demo</span>
-        <img src="./games-background.jpg" alt="Pikachu Adventure — Gameplay Screenshot">
-      </a>
-      <div class="card-body">
-        <div class="proj-title">Pikachu Adventure</div>
-        <div class="meta">
-          <span class="pill">Thể loại: <b>2D Platformer / Adventure / Boss Battle</b></span>
-          <span class="pill">Nền tảng: <b>Windows PC</b></span>
-          <span class="pill">Sự kiện: <b>Prompt-to-Play Hackathon</b></span>
+  <!-- 01 Overview (short caption) -->
+  <section>
+    <div class="wrap">
+      <div class="lead">
+        <div class="num">01</div>
+        <div>
+          <div class="eyebrow">Overview</div>
+          <h2>Biến một câu chuyện quen thuộc thành một vòng lặp gameplay rõ ràng.</h2>
+          <p>Một game platformer lấy cảm hứng từ thế giới Pokémon, xây dựng trọn vẹn cho Prompt-to-Play Hackathon — từ concept, cốt truyện, level design đến gameplay chạy được trên Windows PC.</p>
         </div>
-        <p class="disclaimer">Fan-made prototype for educational/hackathon purposes only. Not affiliated with Nintendo, Game Freak, Creatures Inc., or The Pokémon Company.</p>
-        <div class="links">
-          🎬 <a href="https://youtu.be/w4rS5_6raAo">Trailer</a>
-          🎮 <a href="https://youtu.be/4adZdZ18rYw">Demo Gameplay</a>
-        </div>
-
-        <h3 class="block">Project Overview</h3>
-        <p>Pikachu Adventure là một game platformer hành động lấy cảm hứng từ thế giới Pokémon, được xây dựng cho cuộc thi Prompt-to-Play Hackathon. Người chơi điều khiển Pikachu vượt qua khu rừng nguy hiểm, đối đầu với các Pokémon hung dữ được xem như "boss" của từng khu vực, với mục tiêu cuối cùng là tìm đường trở về với Ash.</p>
-        <p>Dự án tập trung vào trải nghiệm chơi nhanh, dễ hiểu nhưng vẫn có thử thách: người chơi phải kết hợp di chuyển, nhảy qua địa hình, né chướng ngại vật và sử dụng kỹ năng chiến đấu để đánh bại boss.</p>
-
-        <h3 class="block">Story Concept</h3>
-        <p>Trong một lần chạm trán với Team Rocket, Pikachu không may bị thất lạc trong một khu rừng rậm bí ẩn. Không có Ash bên cạnh, Pikachu buộc phải tự mình tìm đường vượt qua những khu vực nguy hiểm, nơi có các Pokémon mạnh mẽ đang canh giữ từng vùng đất.</p>
-        <p>Mỗi màn chơi đại diện cho một thử thách trong hành trình trở về. Khi đánh bại boss cuối cùng là Mewtwo, Pikachu được dịch chuyển trở về bên Ash, khép lại hành trình sinh tồn và đoàn tụ.</p>
-
-        <h3 class="block">Main Character — Pikachu</h3>
-        <p>Khả năng di chuyển 4 hướng, nhảy qua nền đất, vượt chướng ngại vật và né đòn tấn công từ boss.</p>
-        <ul>
-          <li><b>Electro Ball</b> — Bắn cầu điện tấn công kẻ địch từ xa, gây sát thương an toàn trong khi giữ khoảng cách với boss.</li>
-          <li><b>Volt Tackle</b> — Lao nhanh về phía trước tấn công trực diện, tạo cảm giác mạnh mẽ và tốc độ cao khi cần áp sát đối thủ.</li>
-        </ul>
-
-        <h3 class="block">Level Design</h3>
-        <div class="tbl-scroll">
-          <table>
-            <thead><tr><th>Level</th><th>Tên</th><th>Mô tả</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Forest Encounter</td><td>Làm quen di chuyển, nhảy, tấn công cơ bản. Boss đầu tiên là thử thách khởi động.</td></tr>
-              <tr><td>2</td><td>Fire Zone</td><td>Địa hình nguy hiểm hơn, nền đất nhỏ, khoảng cách xa, đòn tấn công bằng lửa.</td></tr>
-              <tr><td>Final</td><td>Mewtwo Battle</td><td>Trận chiến cuối, đòi hỏi vận dụng toàn bộ kỹ năng đã học.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="block">My Role</h3>
-        <div class="grid">
-          <div class="role-card"><h4>Story Design</h4><p>Xây dựng cốt truyện Pikachu thất lạc, vượt qua boss để tìm đường về với Ash.</p></div>
-          <div class="role-card"><h4>Level Design</h4><p>Thiết kế màn chơi tăng dần độ khó, bố cục platform, vị trí chướng ngại vật, khu vực boss.</p></div>
-          <div class="role-card"><h4>Gameplay Design</h4><p>Cơ chế di chuyển, nhảy, tấn công bằng Electro Ball và Volt Tackle.</p></div>
-          <div class="role-card"><h4>Full-stack Game Dev</h4><p>Triển khai toàn bộ từ menu, gameplay, nhân vật, boss, hiệu ứng đến bản demo Windows PC.</p></div>
-        </div>
-
-        <blockquote>Điểm quan trọng của dự án là khả năng biến một câu chuyện quen thuộc thành một vòng lặp gameplay rõ ràng: <b>khám phá → vượt chướng ngại → chiến đấu → đánh bại boss → tiến tới màn tiếp theo.</b></blockquote>
-
-        <h3 class="block">Key Features</h3>
-        <ul class="feat">
-          <li>Playable 2D Platformer — điều khiển Pikachu trực tiếp trong môi trường platformer</li>
-          <li>Boss Battle Gameplay — mỗi màn chơi có boss riêng, tạo điểm nhấn rõ ràng</li>
-          <li>Skill-based Combat — Electro Ball (tấn công xa) và Volt Tackle (tấn công áp sát)</li>
-          <li>Progressive Difficulty — độ khó tăng dần qua từng màn</li>
-          <li>Windows PC Demo — đóng gói chạy trên ứng dụng Windows</li>
-        </ul>
       </div>
-    </article>
-  </div>
-</section>
+    </div>
+  </section>
+
+  <!-- 02 Gameplay gallery — visual first -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="lead">
+        <div class="num">02</div>
+        <div>
+          <div class="eyebrow">Gameplay</div>
+          <h2>Khám phá → vượt chướng ngại → chiến đấu → hạ boss.</h2>
+          <p>Người chơi kết hợp di chuyển chính xác, né đòn thông minh và dùng kỹ năng đúng lúc qua từng khu vực.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure class="wide">
+          <img src="./games-background.jpg" alt="Pikachu chiến đấu giữa khu rừng nước">
+          <figcaption>Forest Encounter — Pikachu né đòn và phản công giữa các bục nhảy trên mặt nước.</figcaption>
+        </figure>
+        <!-- Thả thêm screenshot vào đây để làm dày gallery, ví dụ:
+        <figure><img src="./screenshots/fire-zone.png" alt="Fire Zone"><figcaption>Fire Zone — địa hình lửa.</figcaption></figure>
+        <figure><img src="./screenshots/mewtwo.png" alt="Mewtwo Battle"><figcaption>Mewtwo Battle — trận cuối.</figcaption></figure>
+        -->
+        <figure><div class="ph">+ Thêm screenshot Fire Zone</div></figure>
+        <figure><div class="ph">+ Thêm screenshot Mewtwo Battle</div></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Combat skills as cards -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="lead">
+        <div class="num">03</div>
+        <div>
+          <div class="eyebrow">Combat</div>
+          <h2>Hai kỹ năng, hai phong cách chơi.</h2>
+          <p>Cân bằng giữa tấn công an toàn từ xa và áp sát tốc độ cao.</p>
+        </div>
+      </div>
+      <div class="grid g2">
+        <div class="card">
+          <div class="ico">⚡</div>
+          <h3>Electro Ball</h3>
+          <p>Bắn cầu điện tấn công kẻ địch từ xa — gây sát thương an toàn trong khi giữ khoảng cách với boss.</p>
+        </div>
+        <div class="card">
+          <div class="ico blue">💨</div>
+          <h3>Volt Tackle</h3>
+          <p>Lao nhanh về phía trước tấn công trực diện — cảm giác mạnh mẽ, tốc độ cao khi cần áp sát đối thủ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Levels as cards -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="lead">
+        <div class="num">04</div>
+        <div>
+          <div class="eyebrow">Level Design</div>
+          <h2>Ba màn chơi, độ khó tăng dần.</h2>
+          <p>Mỗi boss là "người gác cổng" của một khu vực, tạo nhịp tiến bộ rõ ràng.</p>
+        </div>
+      </div>
+      <div class="grid g3">
+        <div class="card">
+          <div class="kicker">Level 1</div>
+          <h3>Forest Encounter</h3>
+          <p>Làm quen di chuyển, nhảy và tấn công cơ bản. Boss đầu tiên là thử thách khởi động.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Level 2</div>
+          <h3>Fire Zone</h3>
+          <p>Địa hình nguy hiểm hơn: nền đất nhỏ, khoảng cách xa, đòn tấn công bằng lửa.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Final</div>
+          <h3>Mewtwo Battle</h3>
+          <p>Trận chiến cuối đòi hỏi vận dụng toàn bộ kỹ năng đã học để giành chiến thắng.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Role grid -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="lead">
+        <div class="num">05</div>
+        <div>
+          <div class="eyebrow">My Role</div>
+          <h2>Một mình triển khai full-stack từ ý tưởng đến demo.</h2>
+          <p>Bốn mảng công việc chính trong dự án.</p>
+        </div>
+      </div>
+      <div class="grid g4">
+        <div class="card"><div class="ico">📖</div><h3>Story Design</h3><p>Cốt truyện Pikachu thất lạc, vượt qua boss để tìm đường về với Ash.</p></div>
+        <div class="card"><div class="ico">🗺️</div><h3>Level Design</h3><p>Bố cục platform, vị trí chướng ngại vật, khu vực boss, nhịp tăng dần độ khó.</p></div>
+        <div class="card"><div class="ico">🎯</div><h3>Gameplay Design</h3><p>Cơ chế di chuyển, nhảy, tấn công bằng Electro Ball và Volt Tackle.</p></div>
+        <div class="card"><div class="ico">🛠️</div><h3>Full-stack Dev</h3><p>Triển khai menu, gameplay, nhân vật, boss, hiệu ứng đến bản demo Windows PC.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Key features chips -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="lead">
+        <div class="num">06</div>
+        <div>
+          <div class="eyebrow">Key Features</div>
+          <h2>Những gì có trong bản demo.</h2>
+        </div>
+      </div>
+      <div class="chips">
+        <span class="chip"><span class="dot"></span>Playable 2D Platformer</span>
+        <span class="chip"><span class="dot"></span>Boss Battle mỗi màn</span>
+        <span class="chip"><span class="dot"></span>Skill-based Combat</span>
+        <span class="chip"><span class="dot"></span>Progressive Difficulty</span>
+        <span class="chip"><span class="dot"></span>Windows PC Demo</span>
+      </div>
+
+      <blockquote>Vòng lặp cốt lõi: <b>khám phá → vượt chướng ngại → chiến đấu → đánh bại boss → tiến tới màn tiếp theo.</b></blockquote>
+
+      <p class="disclaimer">Fan-made prototype phục vụ mục đích học tập/hackathon. Không liên kết với Nintendo, Game Freak, Creatures Inc., hay The Pokémon Company. Mọi bản quyền liên quan thuộc về các chủ sở hữu tương ứng.</p>
+    </div>
+  </section>
+
 </main>
 
 <footer>
   <div class="wrap">
     <span>© 2026 Thanh Truc · Games Portfolio</span>
-    <span><a href="https://github.com/fennytrucds">github.com/fennytrucds</a></span>
+    <span><a href="https://github.com/fennytrucds">github.com/fennytrucds ↗</a></span>
   </div>
 </footer>
 
