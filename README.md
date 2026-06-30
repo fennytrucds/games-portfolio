@@ -97,4 +97,4 @@ Kết quả của dự án là một bản demo game có thể chơi được, b
 
 ## License & Disclaimer
 
-Fan-made Game Concept phi thương mại. Pokémon © Nintendo, Game Freak, Creatures Inc. & The Pokémon Company.
+Pokémon Adventure is a non-commercial, fan-made game concept created for educational, portfolio, and hackathon purposes only. Pokémon and all related characters are © Nintendo, Game Freak, Creatures Inc., and The Pokémon Company. This project is not affiliated with, endorsed by, or sponsored by any of the above rights holders.
