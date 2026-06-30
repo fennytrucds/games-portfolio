@@ -56,10 +56,34 @@
 
   /* Sections */
   section{padding:72px 0}
-  .lead{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
-  .lead .num{font-weight:900;font-size:1.1rem;color:var(--accent);background:var(--ink);width:42px;height:42px;border-radius:12px;display:grid;place-items:center}
-  .lead h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.01em;line-height:1.15}
-  .lead p{color:var(--muted);margin-top:8px;max-width:680px;font-size:1.05rem}
+  .lead{max-width:900px;margin:0 auto;text-align:center}
+  .lead .ghost{font-size:clamp(3.4rem,9vw,5.6rem);font-weight:900;line-height:.9;letter-spacing:-.04em;
+        color:transparent;-webkit-text-stroke:2px #e3e1da;margin-bottom:8px;user-select:none}
+  .lead .kicker{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 14px;
+        font-size:.78rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}
+  .lead .kicker::before,.lead .kicker::after{content:"";height:1px;width:46px;background:var(--line)}
+  .lead h2{font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:900;letter-spacing:-.02em;line-height:1.16;margin:0 auto;white-space:nowrap}
+  .lead h2.two{white-space:normal}
+  .lead h2.two span{display:block;white-space:nowrap}
+  .lead p{color:var(--muted);margin:14px auto 0;max-width:62ch;font-size:1.05rem}
+
+  /* Role Map (section 05) */
+  .rolemap{display:grid;grid-template-columns:1fr minmax(0,2.1fr) 1fr;grid-template-rows:auto auto auto;
+        gap:14px 24px;align-items:center;max-width:980px;margin:40px auto 0}
+  .rolemap .center{grid-column:2;grid-row:2}
+  .shot2{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+  .shot2 img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .ann .nm{font-weight:800;color:var(--ink);font-size:1.02rem}
+  .ann .ds{color:var(--muted);font-size:.84rem;margin-top:3px}
+  .r-top{grid-column:2;grid-row:1;text-align:center}
+  .r-left{grid-column:1;grid-row:2;text-align:right}
+  .r-right{grid-column:3;grid-row:2;text-align:left}
+  .r-bottom{grid-column:2;grid-row:3;text-align:center}
+  @media(max-width:720px){
+    .rolemap{grid-template-columns:1fr 1fr;gap:16px}
+    .rolemap .center{grid-column:1/-1;grid-row:1}
+    .r-top,.r-left,.r-right,.r-bottom{grid-column:auto;grid-row:auto;text-align:center}
+  }
 
   /* Generic card grids */
   .grid{display:grid;gap:18px;margin-top:34px}
@@ -136,12 +160,10 @@
   <section>
     <div class="wrap">
       <div class="lead">
-        <div class="num">01</div>
-        <div>
-          <div class="eyebrow">Cốt truyện</div>
-          <h2>Pikachu thất lạc — hành trình tìm đường về với Ash.</h2>
-          <p>Ash và Pikachu là đôi bạn thân luôn đồng hành, và luôn bị Team Rocket phục kích hòng bắt Pikachu. Trong một lần chạm trán, Pikachu chẳng may thất lạc giữa rừng rậm. Cậu phải vượt qua những khu vực trắc trở và các Pokémon hung dữ — boss của từng vùng rừng — để tìm lại Ash.</p>
-        </div>
+        <div class="ghost">01</div>
+        <div class="kicker">Story</div>
+        <h2>Pikachu thất lạc — hành trình tìm đường về với Ash.</h2>
+        <p>Ash và Pikachu là đôi bạn thân luôn đồng hành, và luôn bị Team Rocket phục kích hòng bắt Pikachu. Trong một lần chạm trán, Pikachu chẳng may thất lạc giữa rừng rậm. Cậu phải vượt qua những khu vực trắc trở và các Pokémon hung dữ — boss của từng vùng rừng — để tìm lại Ash.</p>
       </div>
     </div>
   </section>
@@ -150,12 +172,10 @@
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
-        <div class="num">02</div>
-        <div>
-          <div class="eyebrow">Gameplay</div>
-          <h2>Khám phá → vượt chướng ngại → chiến đấu → hạ boss.</h2>
-          <p>Người chơi kết hợp di chuyển chính xác, né đòn thông minh và dùng kỹ năng đúng lúc qua từng khu vực.</p>
-        </div>
+        <div class="ghost">02</div>
+        <div class="kicker">Gameplay</div>
+        <h2>Khám phá → vượt chướng ngại → chiến đấu → hạ boss.</h2>
+        <p>Người chơi kết hợp di chuyển chính xác, né đòn thông minh và dùng kỹ năng đúng lúc qua từng khu vực.</p>
       </div>
       <div class="gallery">
         <figure class="wide">
@@ -178,12 +198,10 @@
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
-        <div class="num">03</div>
-        <div>
-          <div class="eyebrow">Combat</div>
-          <h2>Hai kỹ năng, hai phong cách chơi.</h2>
-          <p>Cân bằng giữa tấn công an toàn từ xa và áp sát tốc độ cao.</p>
-        </div>
+        <div class="ghost">03</div>
+        <div class="kicker">Combat</div>
+        <h2>Hai kỹ năng, hai phong cách chơi.</h2>
+        <p>Cân bằng giữa tấn công an toàn từ xa và áp sát tốc độ cao.</p>
       </div>
       <div class="grid g2">
         <div class="card">
@@ -204,12 +222,10 @@
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
-        <div class="num">04</div>
-        <div>
-          <div class="eyebrow">Level Design</div>
-          <h2>Ba màn chơi, độ khó tăng dần.</h2>
-          <p>Mỗi boss là "người gác cổng" của một khu vực, tạo nhịp tiến bộ rõ ràng.</p>
-        </div>
+        <div class="ghost">04</div>
+        <div class="kicker">Level Design</div>
+        <h2>Ba màn chơi, độ khó tăng dần.</h2>
+        <p>Mỗi boss là "người gác cổng" của một khu vực, tạo nhịp tiến bộ rõ ràng.</p>
       </div>
       <div class="grid g3">
         <div class="card">
@@ -235,18 +251,30 @@
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lead">
-        <div class="num">05</div>
-        <div>
-          <div class="eyebrow">Team Role</div>
-          <h2>BaoNLC triển khai full-stack từ ý tưởng đến demo.</h2>
-          <p>Bốn mảng công việc chính trong dự án.</p>
-        </div>
+        <div class="ghost">05</div>
+        <div class="kicker">Game Credits</div>
+        <h2 class="two"><span>BaoNLC</span><span>triển khai full-stack từ ý tưởng đến demo.</span></h2>
       </div>
-      <div class="grid g4">
-        <div class="card"><div class="ico">📖</div><h3>Story Design</h3><p>Cốt truyện Pikachu thất lạc, vượt qua boss để tìm đường về với Ash.</p></div>
-        <div class="card"><div class="ico">🗺️</div><h3>Level Design</h3><p>Bố cục platform, vị trí chướng ngại vật, khu vực boss, nhịp tăng dần độ khó.</p></div>
-        <div class="card"><div class="ico">🎯</div><h3>Gameplay Design</h3><p>Cơ chế di chuyển, nhảy, tấn công bằng Electro Ball và Volt Tackle.</p></div>
-        <div class="card"><div class="ico">🛠️</div><h3>Full-stack Dev</h3><p>Triển khai menu, gameplay, nhân vật, boss, hiệu ứng đến bản demo Windows PC.</p></div>
+      <div class="rolemap">
+        <div class="r-top ann">
+          <div class="nm">Story Design</div>
+          <div class="ds">Cốt truyện Pikachu thất lạc, tìm đường về với Ash.</div>
+        </div>
+        <div class="r-left ann">
+          <div class="nm">Level Design</div>
+          <div class="ds">Bố cục platform, khu vực boss, độ khó tăng dần.</div>
+        </div>
+        <div class="center">
+          <div class="shot2"><img src="./screenshots/gameplay-main.jpg" alt="Pikachu đối đầu boss trong Pikachu Adventure"></div>
+        </div>
+        <div class="r-right ann">
+          <div class="nm">Gameplay Design</div>
+          <div class="ds">Di chuyển, nhảy, Electro Ball và Volt Tackle.</div>
+        </div>
+        <div class="r-bottom ann">
+          <div class="nm">Full-stack Dev</div>
+          <div class="ds">Menu, gameplay, boss, hiệu ứng đến demo Windows PC.</div>
+        </div>
       </div>
     </div>
   </section>
